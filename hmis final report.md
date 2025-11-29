@@ -156,21 +156,17 @@ To maintain data quality, the system performs strict input validation:
 **1. Aadhaar:**
 
 -Must be numeric only
-
 -Must be exactly 12 digits
 
 **2. DOB (`DDMMYYYY`):**
 
 -Must be numeric
-
 -Must be exactly 8 digits
-
 -Must represent a valid calendar date
 
 **3. UHID (for existing patients / history view):**
 
 -Must be numeric
-
 -Must be exactly 8 digits
 
 If any rule fails, the system prints an error and re-prompts the user. 
@@ -230,11 +226,8 @@ On startup, the system calls `load_dummy_data_from_excel()` which:
 2. Iterates over each row:
 
 - Cleans and validates **UHID**, **DOB**, **Aadhaar**.
-
 - Creates or retrieves a **Patient** object.
-
 - Creates a **Visit** object linked to the patient.
-
 - Populates presenting complaints, investigations, medications, diagnosis, advice, and disposition.
 
 3. Marks each such visit as **closed** (these are historical visits).
@@ -345,7 +338,6 @@ The registration flow (Menu Option 1) performs the following steps:
 1. Ask if the patient already has a UHID.
 
 - If **yes**: validate UHID, fetch patient, and create a new visit with selected department and doctor.
-
 - If **no**: capture patient details, validate DOB and Aadhaar, generate UHID, and create both patient and visit.
 
 2. Allow front desk to select the **department** from a predefined list.
@@ -424,17 +416,11 @@ def registration_flow(system):
 The doctor consultation flow (Menu Option 2):
 
 1. Identifies the patient using UHID and chooses an **open visit**.
-
 2. Records **vitals** (`BP`, `Pulse`, `SpO2`, `Temperature`).
-
 3. Captures a detailed **clinical history**: presenting complaints, past history, surgeries, allergies, medications, addictions.
-
 4. Records **diagnosis**.
-
 5. Allows adding multiple **investigations** and **medications**.
-
 6. Captures **advice** and **disposition**, then closes the visit.
-
 7. Generates and prints an **OPD Case Sheet** and appends the visit to Excel.
 
 #### Key Code Snippet  
@@ -554,13 +540,9 @@ def doctor_consultation_flow(system):
 The history viewer (Menu Option 3):
 
 1. Takes UHID as input and fetches the corresponding patient.
-
 2. Iterates over all visits associated with that patient.
-
 3. Displays visit ID, date, department, doctor, diagnosis, and presenting complaints.
-
 4. For **investigations**, it formats them depending on whether they were loaded as free text or structured.
-
 5. For **medications**, it removes extra words like “text” or “Prescription” and avoids awkward strings like `for .`.
 
 #### Key Code Snippet
@@ -643,21 +625,15 @@ Based on the literature and charts presented:
 **Benefits of Electronic Health Records (EHR) / HIS-based OPD:**
 
 1. Improved patient outcomes due to better continuity of care, fewer errors, and more complete information at the point of care.
-
 2. Higher data quality: legible, searchable, and structured data.
-
 3. Faster reporting for internal KPIs, regulatory submissions, and audits.
-
 4. Analytics-ready data enabling future modules like dashboards, disease surveillance, and resource planning.
-
 5. Global trend: Many Western countries have significantly increased EHR adoption in hospitals and clinics, indicating proven value and maturity of such systems.
 
 **Challenges / Trade-offs:**
 
 1. Implementation cost and complexity (hardware, software, training).
-
 2. Change management: staff need time and support to adapt from paper to digital workflows.
-
 3. Data security and privacy: requires proper access control and compliance.
 
 Our project is a simplified console prototype, but it reflects the core ideas of EHR: a **centralized, longitudinal electronic record** of OPD interactions.
@@ -667,10 +643,6 @@ Our project is a simplified console prototype, but it reflects the core ideas of
 ## 4. References
 
 1. [Python Documentation.](https://docs.python.org/3/)
-
 2. Python Module and Libraries: [datetime](https://docs.python.org/3/library/datetime.html) and [pandas](https://pandas.pydata.org/).
- 
 3. [Introduction to Computation and Programming Using Python.](https://mitpress.mit.edu/9780262542364/introduction-to-computation-and-programming-using-python/)
-
 4. [Electronic Health Records Statistics 2025 By Healthcare, Data, Management.](https://media.market.us/electronic-health-records-statistics/)
-
