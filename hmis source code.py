@@ -17,7 +17,7 @@ DOCTORS = [
     {"id": "DR007", "name": "Dr. Vivek Reddy",   "department": "Orthopaedics"},
     {"id": "DR008", "name": "Dr. Neha Gupta",    "department": "Dermatology"},
     {"id": "DR009", "name": "Dr. Sameer Iyer",   "department": "Psychiatry"},
-    {"id": "DR010", "name": "Dr. Priya Das",     "department": "General OPD"},  # changed as requested
+    {"id": "DR010", "name": "Dr. Priya Das",     "department": "General OPD"},
 ]
 
 # Ordered list of departments
@@ -31,7 +31,7 @@ DEPARTMENTS = [
     "Orthopaedics",
     "Dermatology",
     "Psychiatry",
-    "General OPD",   # changed from General Physician
+    "General OPD",
 ]
 
 
@@ -259,11 +259,11 @@ class Visit:
 # Class to store patient details (with private attributes)
 class Patient:
     def __init__(self, uhid, name, gender, aadhaar_digits, dob, occupation):
-        self.__uhid = uhid
-        self.__name = name
+        self.__uhid = uhid                                # private attribute UHID
+        self.__name = name                                # private attribute Name
         self.gender = gender
-        self.__aadhaar_digits = aadhaar_digits
-        self.__dob = dob
+        self.__aadhaar_digits = aadhaar_digits            # private attribute Aadhaar number
+        self.__dob = dob                                  # private attribute DOB
         self.occupation = occupation
         self.address_line1 = ""
         self.city = ""
@@ -276,16 +276,16 @@ class Patient:
         self.emergency_phone = ""
         self.visits = []
 
-    def get_uhid(self):
+    def get_uhid(self):                                    # getter for UHID
         return self.__uhid
 
-    def get_name(self):
+    def get_name(self):                                    # getter for Name
         return self.__name
 
-    def get_aadhaar_digits(self):
+    def get_aadhaar_digits(self):                          # getter for Aadhaar number
         return self.__aadhaar_digits
 
-    def get_dob(self):
+    def get_dob(self):                                     # getter for DOB
         return self.__dob
 
     @property
@@ -806,4 +806,5 @@ def main():
             print("Invalid choice. Try again.")
 
 if __name__ == "__main__":
+
     main()
