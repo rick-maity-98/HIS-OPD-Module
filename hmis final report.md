@@ -46,13 +46,13 @@ The module currently covers:
 
 ## 2. Data  
 
-### 2.1 Data Source & Format  
+### 2.1 Data Source and Format  
 
 The project uses a synthetic **OPD Patient Dataset** stored in an Excel file:
 
 - **File name:** `hmis_dummy_data.xlsx`  
 - **Total records:** 100 OPD entries (dummy data)  
-- **Purpose:** To simulate a realistic OPD workflow from registration to visit closure. :contentReference[oaicite:1]{index=1}  
+- **Purpose:** To simulate a realistic OPD workflow from registration to visit closure. 
 
 The Python program both **reads from** and **appends to** this Excel file to maintain continuity across sessions.
 
@@ -60,7 +60,7 @@ The Python program both **reads from** and **appends to** this Excel file to mai
 
 Each row in the dataset represents one completed OPD visit and contains:
 
-- **Patient & Demographics**
+- **Patient and Demographics**
   - `UHID`: 8-digit unique hospital ID  
   - `Name`, `Gender`  
   - `DOB`: date of birth in `DDMMYYYY` format  
@@ -70,7 +70,7 @@ Each row in the dataset represents one completed OPD visit and contains:
   - `Mobile`  
   - `EmergencyName`, `EmergencyRelation`, `EmergencyPhone`  
 
-- **Clinical & OPD Workflow**
+- **Clinical and OPD Workflow**
   - `Department`: e.g., General Medicine, Paediatrics, ENT, etc.  
   - `DoctorId`: mapped to predefined doctor list  
   - `PresentingComplaints`: free-text primary complaint  
@@ -88,10 +88,10 @@ Each row in the dataset represents one completed OPD visit and contains:
 
 ---
 
-## 3. Questions & Answers  
+## 3. Questions and Answers  
 
 Below are key conceptual and implementation questions, their answers, and relevant code snippets.  
-Each question also notes **who primarily led/solved** that part in the project (as per roles in the presentation).
+Each question also notes **who primarily led/solved** that part in the project.
 
 ---
 
@@ -531,7 +531,7 @@ def doctor_consultation_flow(system):
 
 ---
 
-### Q6. How can we view a patient’s complete OPD history and ensure clean display of investigations & medications?
+### Q6. How can we view a patient’s complete OPD history and ensure clean display of investigations and medications?
 
 **Solved by:** Sushobhon Ghosh
 
@@ -614,7 +614,7 @@ def view_history_flow(system):
 
 ---
 
-### Q7. What are the broader implications, benefits, and trade-offs of using an EHR-based OPD module?
+### Q7. What are the broader implications, benefits, and trade-offs of using an HIS-based OPD module?
 
 **Solved by:** Sushobhon Ghosh
 
@@ -626,7 +626,7 @@ Based on the literature and charts presented:
 
 1. Improved patient outcomes due to better continuity of care, fewer errors, and more complete information at the point of care.
 2. Higher data quality: legible, searchable, and structured data.
-3. Faster reporting for internal KPIs, regulatory submissions, and audits.
+3. Faster reporting for internal key performance indicators, regulatory submissions, and audits.
 4. Analytics-ready data enabling future modules like dashboards, disease surveillance, and resource planning.
 5. Global trend: Many Western countries have significantly increased EHR adoption in hospitals and clinics, indicating proven value and maturity of such systems.
 
@@ -646,3 +646,4 @@ Our project is a simplified console prototype, but it reflects the core ideas of
 2. Python Module and Libraries: [datetime](https://docs.python.org/3/library/datetime.html) and [pandas](https://pandas.pydata.org/).
 3. [Introduction to Computation and Programming Using Python.](https://mitpress.mit.edu/9780262542364/introduction-to-computation-and-programming-using-python/)
 4. [Electronic Health Records Statistics 2025 By Healthcare, Data, Management.](https://media.market.us/electronic-health-records-statistics/)
+
